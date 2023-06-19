@@ -41,12 +41,16 @@ enum PetEnvironment {
 }
 
 model Org {
-  id         String   @id @default(uuid())
-  name       String
-  address    String
-  phone      String
-  pets       Pet[]
-  created_at DateTime @default(now())
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  password_hash String
+  owner         String
+  cep           String
+  address       String
+  phone         String
+  pets          Pet[]
+  created_at    DateTime @default(now())
 
   @@map("orgs")
 }
